@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="/static/css/slyle_main.css">
+ <title>
+        {% block title %}
+        Сайт интрнет магазина
+        {% endblock %}
+ </title>
+</head>
+<body>
+
+<div class="menu">
+	<ul>
+		{% for item in main_menu %}
+			{% if item.second_menu %}
+				<li>
+					<a class="menu-caret" href="#">{{ item.name }}</a>
+					<ul>
+					{% for item_second in item.second_menu %}
+						<li><a href=/{{ item_second.href }}>{{ item_second.name }}</a></li>
+					{% endfor %}
+					</ul>
+				</li>
+			{% else %}
+				<li><a href=/{{ item.href }}>{{ item.name }}</a></li>
+			{% endif %}
+		{% endfor %}
+
+	</ul>
+</div>
+{% block content %}
+    Страница не заполнена
+{% endblock %}
+
+<p class="alert-dark">Все права защищены &copy;</p>
+</body>
+</html>
