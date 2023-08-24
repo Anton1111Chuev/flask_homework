@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Список пользователей</title>
+</head>
+<body>
+<table>
+    <caption>Перечень пользователей</caption>
+    <tr>
+        <th>id</th>
+        <th>Имя</th>
+        <th>email</th>
+    </tr>
+    {% for item in users %}
+    <tr>
+        <td>{{ item.id_ }}</td>
+        <td>{{ item.name }}</td>
+        <td>{{ item.email }}</td>
+    <tr>
+        {% endfor %}
+</table>
+<form action="/add_user" method="post">
+    <input type="number" name="id_" placeholder="id">
+    <input type="text" name="name" placeholder="name">
+    <input type="text" name="email" placeholder="email">
+    <input type="text" name="password" placeholder="password">
+    <input type="submit" value="Добавить пользователя">
+</form>
+</body>
+</html>
